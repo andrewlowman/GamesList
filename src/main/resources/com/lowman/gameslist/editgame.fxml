@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="editGameMainPanel" prefHeight="750.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="99.0" layoutY="78.0" text="Title" />
+        <Label layoutX="93.0" layoutY="239.0" text="Rating" />
+        <Label layoutX="91.0" layoutY="325.0" text="How Long To Beat" />
+        <TextField fx:id="editGameTitleTxtField" layoutX="236.0" layoutY="74.0" prefHeight="25.0" prefWidth="192.0" />
+        <TextField fx:id="editGameRatingTxtField" layoutX="240.0" layoutY="235.0" prefHeight="25.0" prefWidth="98.0" />
+        <TextField fx:id="editGameHLTBTxtField" layoutX="240.0" layoutY="321.0" prefHeight="25.0" prefWidth="98.0" />
+        <Label layoutX="98.0" layoutY="433.0" text="Category" />
+        <ChoiceBox fx:id="editGameCategoryChoiceBox" layoutX="240.0" layoutY="429.0" prefWidth="150.0" />
+        <Label layoutX="91.0" layoutY="149.0" text="System" />
+        <ChoiceBox fx:id="editGameSystemChoiceBox" layoutX="235.0" layoutY="145.0" prefWidth="150.0" />
+        <Button fx:id="editGameSaveButton" layoutX="316.0" layoutY="622.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="98.0" text="Save Changes" />
+        <Button fx:id="editGameExitButton" layoutX="226.0" layoutY="630.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="52.0" text="Exit" />
+        <TextArea fx:id="editGameNotesTextArea" layoutX="476.0" layoutY="167.0" prefHeight="510.0" prefWidth="245.0" wrapText="true" />
+        <Label layoutX="476.0" layoutY="128.0" text="Notes" />
+        <Label layoutX="478.0" layoutY="78.0" />
+        <CheckBox fx:id="editGameFavoriteCheckBox" layoutX="240.0" layoutY="516.0" mnemonicParsing="false" text="Favorite">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </CheckBox>
+      <Button fx:id="editGameDeleteButton" layoutX="65.0" layoutY="638.0" mnemonicParsing="false" text="Delete" />
+    </children>
+</AnchorPane>

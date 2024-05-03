@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="dialogMainPanel" prefHeight="153.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lowman.gameslist.Controller.CustomDialogController">
+   <children>
+      <Button fx:id="dialogCancelButton" layoutX="286.0" layoutY="73.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="dialogDeleteButton" layoutX="65.0" layoutY="73.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="dialogEditButton" layoutX="449.0" layoutY="58.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="86.0" text="Edit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
