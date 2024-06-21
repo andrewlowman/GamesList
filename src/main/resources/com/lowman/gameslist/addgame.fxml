@@ -35,5 +35,6 @@
             <Font size="14.0" />
          </font>
       </CheckBox>
+      <Button fx:id="addGameFillHLTBButton" layoutX="372.0" layoutY="278.0" mnemonicParsing="false" text="Fill HLTB" />
    </children>
 </AnchorPane>

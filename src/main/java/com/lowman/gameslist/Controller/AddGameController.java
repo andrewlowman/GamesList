@@ -3,6 +3,7 @@ package com.lowman.gameslist.Controller;
 import com.lowman.gameslist.Model.Category;
 import com.lowman.gameslist.Model.GamingSystem;
 import com.lowman.gameslist.Utility.DBConnection;
+import com.lowman.gameslist.Utility.HLTB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,14 +33,17 @@ public class AddGameController implements Initializable {
     public AnchorPane addGameMainPanel;
     public TextArea addGameNotesTextArea;
     public CheckBox addGameFavoriteCheckBox;
+    public Button addGameFillHLTBButton;
     private ObservableList<Category> categories = FXCollections.observableArrayList();
     private ObservableList<GamingSystem> systems = FXCollections.observableArrayList();
 
     Connection conn = null;
+    HLTB hltb;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        hltb = new HLTB();
 
         //load choice boxes with enums
         for (Category c:Category.values()){
@@ -132,6 +136,25 @@ public class AddGameController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 Stage stage = (Stage) addGameExitButton.getScene().getWindow();
                 stage.close();
+            }
+        });
+
+        addGameFillHLTBButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String title = addGameTitleTxtField.getText();
+                if(title.equals("")||title == null){
+                    dialogPopUp("Enter a title");
+                    return;
+                }
+                hltb.searchGameName(title);
+
+                try{
+                    addGameRatingTxtField.setText(hltb.getGameRating());
+                    addGameHLTBTxtField.setText(hltb.getGameHLTB());
+                }catch (Exception e){
+                    dialogPopUp("Whoops something went wrong.");
+                }
             }
         });
 
