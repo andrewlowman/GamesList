@@ -21,7 +21,6 @@ public class HLTB {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
 
-
     }
 
     public void searchGameName(String name){
@@ -35,13 +34,23 @@ public class HLTB {
         //click triggers the page to update
         searchTextBox.click();
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='GameCard_search_list_image__B2uLH']")));
-        gamesList = driver.findElements(By.xpath("//div[@class='GameCard_search_list_image__B2uLH']"));
-        gamesList.get(0).click();
     }
 
     public String getGameRating(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='text_primary']//h5[@style='margin-top: -87px; text-align: center;']")));
+        try{
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='GameCard_search_list_image__B2uLH']")));
+        }catch (Exception e){
+            return "0";
+        }
+        gamesList = driver.findElements(By.xpath("//div[@class='GameCard_search_list_image__B2uLH']"));
+        gamesList.get(0).click();
+
+        try{
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='text_primary']//h5[@style='margin-top: -87px; text-align: center;']")));
+        }catch (Exception e){
+            return "0";
+        }
+
         WebElement rating = driver.findElement(By.xpath("//a[@class='text_primary']//h5[@style='margin-top: -87px; text-align: center;']"));
         //System.out.println(rating.getText());
         //trimming the results so it is just numbers and getting a rating out of ten
@@ -51,11 +60,16 @@ public class HLTB {
     }
 
     public String getGameHLTB(){
-        //wait.until(ExpectedConditions.presenceOfElementLocated())
+        try{
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[text()='Main + Extras']/following-sibling::td[3]")));
+        }catch (Exception e){
+            return "0";
+        }
         WebElement time = driver.findElement(By.xpath("//td[text()='Main + Extras']/following-sibling::td[3]"));
        /* wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[@class='GameStats_short__tSJ6I time_60']//h5")));
         WebElement time = driver.findElement(By.xpath("//li[@class='GameStats_short__tSJ6I time_60']//h5"));*/
         //System.out.println(time.getText());
-        return time.getText().substring(0,time.getText().indexOf("h"));
+        String timeHLTB = time.getText().replaceAll("[^0-9]","");
+        return timeHLTB; //.substring(0,time.getText().indexOf("h"));
     }
 }

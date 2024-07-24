@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#refresh" prefHeight="978.0" prefWidth="1841.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lowman.gameslist.MainController">
+<AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#refresh" prefHeight="978.0" prefWidth="1841.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lowman.gameslist.MainController">
    <children>
       <HBox fx:id="mainHBox" layoutY="29.0" prefHeight="946.0" prefWidth="1839.0">
          <children>
@@ -99,6 +99,9 @@
             <items>
                   <MenuItem fx:id="saveSearchMenuItem" mnemonicParsing="false" text="Save Search" />
                   <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete Game" />
+                  <MenuItem fx:id="menuItemLoadSteam" mnemonicParsing="false" text="Load Steam Library" />
+                  <MenuItem fx:id="menuItemLoadEpic" mnemonicParsing="false" text="Load Epic Library" />
+                  <MenuItem fx:id="menuItemLoadPSN" mnemonicParsing="false" text="Load PSN Library" />
               <MenuItem fx:id="mainExitMenuItem" mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>

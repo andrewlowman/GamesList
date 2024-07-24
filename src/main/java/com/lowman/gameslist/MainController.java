@@ -97,6 +97,9 @@ public class MainController implements Initializable {
     public MenuItem menuItemUnknown;
     public MenuItem menuItemDelete;
     public MenuItem menuItemEditGame;
+    public MenuItem menuItemLoadSteam;
+    public MenuItem menuItemLoadEpic;
+    public MenuItem menuItemLoadPSN;
     private Connection conn = null;
     private final ObservableList<Category> categories = FXCollections.observableArrayList();
     private final ObservableList<GamingSystem> systems = FXCollections.observableArrayList();
@@ -108,7 +111,14 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        File file = new File("/searchList.ser");
+        File file = new File("steamHashMap.ser");
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         Save save = new Save();
         Load load = new Load();
 
@@ -236,6 +246,51 @@ public class MainController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 if(saveSQL != ""){
                    // save.saveSearchHashMap(integerGameHashMap);
+                }
+            }
+        });
+
+        menuItemLoadSteam.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try{
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadsteamlibrary.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage newstage = new Stage();
+                    newstage.setScene(scene);
+                    newstage.show();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        menuItemLoadEpic.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                /*try{
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadepic.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage newstage = new Stage();
+                    newstage.setScene(scene);
+                    newstage.show();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }*/
+            }
+        });
+
+        menuItemLoadPSN.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try{
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadpsn.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage newstage = new Stage();
+                    newstage.setScene(scene);
+                    newstage.show();
+                }catch (IOException e){
+                    e.printStackTrace();
                 }
             }
         });
@@ -537,6 +592,8 @@ public class MainController implements Initializable {
                     fxmlLoader.setController(editGameController);
                     Scene scene = new Scene(fxmlLoader.load());
                     Stage newstage = new Stage();
+                    newstage.setX(0);
+                    newstage.setX(0);
                     newstage.setScene(scene);
                     newstage.initModality(Modality.APPLICATION_MODAL);
                     newstage.show();
@@ -567,8 +624,8 @@ public class MainController implements Initializable {
                         Scene scene = new Scene(fxmlLoader.load());
                         Stage newstage = new Stage();
                         //set location to where the mouse clicked
-                        newstage.setX(x);
-                        newstage.setY(y);
+                        newstage.setX(0);
+                        newstage.setY(0);
                         //so cant open multi windows
                         newstage.initModality(Modality.APPLICATION_MODAL);
                         newstage.setScene(scene);

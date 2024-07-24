@@ -6,6 +6,7 @@ module com.example.gameslist {
     requires org.seleniumhq.selenium.api;
     requires org.seleniumhq.selenium.firefox_driver;
     requires org.seleniumhq.selenium.support;
+    requires org.seleniumhq.selenium.chrome_driver;
 
 
     opens com.lowman.gameslist to javafx.fxml;

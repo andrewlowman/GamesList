@@ -128,6 +128,7 @@ public class AddGameController implements Initializable {
 
                 Stage stage = (Stage) addGameSaveButton.getScene().getWindow();
                 stage.close();
+                DBConnection.closeConnection();
             }
         });
 

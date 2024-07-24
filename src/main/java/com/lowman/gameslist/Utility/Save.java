@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Save implements Serializable {
-    public void saveSearchHashMap(HashMap<String, String> map){
+    public void saveSteamHashMap(HashMap<String,Boolean> map){
         try{
-            FileOutputStream fileOutputStream = new FileOutputStream("/searchHashMap.ser");
+            FileOutputStream fileOutputStream = new FileOutputStream("steamHashMap.ser");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(map);
             objectOutputStream.close();
